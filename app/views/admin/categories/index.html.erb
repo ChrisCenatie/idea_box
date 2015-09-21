@@ -1,0 +1,20 @@
+<%= link_to "Logout", logout_path, method: :delete %>
+<%= link_to "Create New Category", new_admin_category_path %>
+<%= link_to "Idea Index", ideas_path %>
+
+<h1>Available Categories</h1>
+
+<table class="categories">
+  <tr>
+    <th>Category Name</th>
+    <th>Remove Category</th>
+  </tr>
+
+  <% @categories.each do |c| %>
+    <tr>
+      <td><%= c.category %></td>
+      <td><%= link_to "Delete Category", admin_category_path(c.id), method:
+      :delete, data: {confirm: "You Sure?"} %></td>
+    </tr>
+  <% end %>
+</table>

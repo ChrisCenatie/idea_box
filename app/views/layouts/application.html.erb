@@ -8,6 +8,10 @@
 </head>
 <body>
 <h1>Welcome to Idea-Box!</h1>
+<% if session[:user_id] != nil %>
+  <h4>Welcome, <%= current_user.username %>!</h4>
+  <%= link_to "Create Idea >>", new_idea_path %>
+<% end %>
 <%= yield %>
 
 </body>

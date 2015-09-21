@@ -14,15 +14,13 @@ end
 
 class ActionDispatch::IntegrationTest
    include Capybara::DSL
-  def teardown
-    reset_session!
-  end
 
   def setup
     DatabaseCleaner.start
   end
 
   def teardown
+    reset_session!
     DatabaseCleaner.clean
   end
 end

@@ -1,0 +1,16 @@
+<%= link_to "Logout", logout_path, method: :delete %>
+<%= link_to "Idea Index", ideas_path %>
+
+<h1>Available Categories</h1>
+
+<table class="categories">
+  <tr>
+    <th>Category Name</th>
+  </tr>
+
+  <% @categories.each do |c| %>
+    <tr>
+      <td><%= c.category %></td>
+    </tr>
+  <% end %>
+</table>

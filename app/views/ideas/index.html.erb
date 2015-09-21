@@ -1,0 +1,21 @@
+<%= link_to "Logout", logout_path, method: :delete %>
+
+<h1>Available Ideas</h1>
+
+<table class="categories">
+  <tr>
+    <th>Category Name</th>
+    <th>Idea Name</th>
+    <th>Edit</th>
+    <th>Delete</th>
+  </tr>
+
+  <% @ideas.each do |i| %>
+    <tr>
+      <td><%= Category.find(i.category_id).category %></td>
+      <td><%= i.idea %></td>
+      <td><%= link_to "Edit", edit_idea_path(i.id) %></td>
+      <td><%= link_to "Delete", "/ideas/#{i.id}", method: :delete %></td>
+    </tr>
+  <% end %>
+</table>
