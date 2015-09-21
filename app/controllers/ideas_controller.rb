@@ -20,6 +20,18 @@ class IdeasController < ApplicationController
     redirect_to ideas_path
   end
 
+  def edit
+    @idea = Idea.find(params[:id])
+    @id = params[:id]
+    @categories = Category.all
+  end
+
+  def update
+    Idea.find(params[:id]).update(idea: params[:idea][:idea],
+                                  category_id: params[:idea][:category_id])
+    redirect_to ideas_path
+  end
+
   private
 
   def category_id
